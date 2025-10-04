@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Badminton - Blue Team Sports</title>
+  <link rel="stylesheet" href="../sports/sport-style.css">
+</head>
+<body class="badminton-page">
+  <!-- Navigation -->
+  <nav>
+    <h2>Blue Team Sports</h2>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../sports/basketball.html">Basketball</a></li>
+      <li><a href="../sports/volleyball.html">Volleyball</a></li>
+      <li><a href="../sports/badminton.html">Badminton</a></li>
+      <li><a href="../sports/chess.html">Chess</a></li>
+    </ul>
+  </nav>
+<main>
+  <!-- Page header -->
+  <h1>Badminton</h1>
+  <p>Join the badminton team and shuttle your way to victory!</p>
+
+  <!-- Registration Form -->
+  <form id="registerForm">
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" list="studentSuggestions" placeholder="Type your name..." required>
+    <datalist id="studentSuggestions"></datalist>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <label for="category">Category:</label>
+    <select id="category" required>
+      <option value="singles">Singles</option>
+      <option value="doubles">Doubles</option>
+    </select>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- Registered Players -->
+  <h2>Registered Players</h2>
+  <div class="players-section" id="badminton-list">
+    <div class="category-box">
+      <h3>Singles - Male</h3>
+      <ul id="singles-male"></ul>
+    </div>
+    <div class="category-box">
+      <h3>Singles - Female</h3>
+      <ul id="singles-female"></ul>
+    </div>
+    <div class="category-box">
+      <h3>Doubles - Males</h3>
+      <ul id="doubles-male"></ul>
+    </div>
+    <div class="category-box">
+      <h3>Doubles - Females</h3>
+      <ul id="doubles-female"></ul>
+    </div>
+  </div>
+
+  <p id="message"></p>
+
+  <footer>
+    &copy; 2025 Blue Team Sports. All rights reserved.
+  </footer>
+</main>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-database-compat.js"></script>
+  <script src="../js/firebase_config.js"></script>
+  <script src="../js/form-handler.js"></script>
+
+  <script>
+    console.log("✅ badminton.html loaded, scripts included correctly");
+  </script>
+</body>
+</html>

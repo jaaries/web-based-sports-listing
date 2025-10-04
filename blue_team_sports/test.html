@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Firebase Test</title>
+</head>
+<body>
+  <h1>Firebase Test</h1>
+  <form id="testForm">
+    <input type="text" id="fullName" placeholder="Enter your name" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="message"></div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-database-compat.js"></script>
+
+  <script>
+    // Your fixed Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBI8z4HOSphuI-Jy0GppP3Yfk5uOSiTVDU",
+      authDomain: "blueteamsports.firebaseapp.com",
+      databaseURL: "https://blueteamsports-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "blueteamsports",
+      storageBucket: "blueteamsports.appspot.com",
+      messagingSenderId: "892636741727",
+      appId: "1:892636741727:web:e693829da136b1a2429bea",
+      measurementId: "G-V0D2V2L2N8"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    const form = document.getElementById("testForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("fullName").value.trim();
+
+      const newEntry = database.ref("registrations").push();
+      newEntry.set({
+        fullName: name,
+        timestamp: new Date().toISOString()
+      })
+      .then(() => {
+        message.textContent = "Data saved successfully!";
+        message.style.color = "green";
+        form.reset();
+      })
+      .catch((err) => {
+        message.textContent = "Error: " + err.message;
+        message.style.color = "red";
+      });
+    });
+  </script>
+</body>
+</html>
