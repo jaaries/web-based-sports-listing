@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Students</title>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="js/firebase_config.js"></script>
+<script src="js/upload-students.js" defer></script>
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f9fafb;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    #log {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-top: 1rem;
+      width: 400px;
+      height: 300px;
+      overflow-y: auto;
+      font-family: monospace;
+    }
+    input[type="file"] {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bulk Upload Students</h1>
+  <input type="file" id="fileInput" accept=".txt" />
+  <button id="uploadBtn">Upload</button>
+
+  <div id="log"></div>
+</body>
+</html>
